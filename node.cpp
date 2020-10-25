@@ -1,0 +1,10 @@
+#include "node.h"
+
+Node:: Node(std::string instruction) {
+    this->instruction = new Instruction(instruction);
+}
+
+void Node:: add_adjacent(Node* previous_node) {
+    this->adjacents.push_back(previous_node);
+    cout << this->adjacents.size() << '\n';
+}
