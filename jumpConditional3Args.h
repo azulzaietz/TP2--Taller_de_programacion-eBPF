@@ -1,9 +1,9 @@
 #ifndef JUMP_CONDITIONAL_3_H
 #define JUMP_CONDITIONAL_3_H
 
-#include "jump.h"
+#include "instructionType.h"
 
-class JumpConditional3Args: public Jump {
+class JumpConditional3Args: public InstructionType {
     public:
     JumpConditional3Args(char* arg, char* tag1, char* tag2);
     virtual void add_tag_code() override;

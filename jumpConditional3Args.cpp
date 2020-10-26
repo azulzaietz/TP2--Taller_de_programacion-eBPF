@@ -1,4 +1,4 @@
-#include "jump.h"
+#include "jumpConditional3Args.h"
 
 JumpConditional3Args:: JumpConditional3Args(char* arg, char* tag1, char* tag2) {
 

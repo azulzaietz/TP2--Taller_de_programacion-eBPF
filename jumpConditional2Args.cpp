@@ -1,4 +1,4 @@
-#include "jump.h"
+#include "jumpConditional2Args.h"
 
 JumpConditional2Args:: JumpConditional2Args(char* arg, char* tag) {
 
