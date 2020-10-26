@@ -12,7 +12,6 @@ void Graph:: add_node(std::string instruction) {
     } else {
         this->nodes.push_back(new Node(instruction));
     }
-    cout << "tamaño nodes" << this->nodes.size() << '\n';
 }
 
 void Graph:: find_loops() {

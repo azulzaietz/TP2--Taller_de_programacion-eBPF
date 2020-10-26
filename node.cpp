@@ -6,7 +6,7 @@ Node:: Node(std::string instruction) {
 
 void Node:: add_adjacent(Node* previous_node) {
     this->adjacents.push_back(previous_node);
-    cout << this->adjacents.size() << '\n';
+    cout << "cantidad de adyacentes" << this->adjacents.size() << '\n';
 }
 
 bool Node:: add_next() {

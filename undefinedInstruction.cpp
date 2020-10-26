@@ -1,7 +1,7 @@
 #include "undefinedInstruction.h"
 
 UndefinedInstruction:: UndefinedInstruction(std::list <string> parameters) {
-    cout << parameters.front() << '\n';
+    cout << "undefined instruction arg: " << parameters.front() << '\n';
 };
 
 bool UndefinedInstruction:: add_next_instruction() {
