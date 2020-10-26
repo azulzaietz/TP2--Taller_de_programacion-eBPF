@@ -4,8 +4,8 @@ InstructionType:: InstructionType() {
     
 }
 
-void InstructionType:: add_tag_code() {
-    //Solo las instrucciones jump llaman a etiquetas
+bool InstructionType:: add_tag_code(std::string tag) {
+    return false;
 }
 
 bool InstructionType:: add_next_instruction() {

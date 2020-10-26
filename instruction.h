@@ -15,18 +15,22 @@ class Instruction {
     std::string instruction;
 
     bool _is_function = false;
-    std:: string function_name;
+    std:: string function_name = NULL;
 
     std::string command_name;
     std::list <string> parameters;
     InstructionType* instructionType;
-    std:: list <const char*> jumps = {"jmp", "ja", "jeq", "jneq", "jne", "jlt", "jle", "jgt", "jge", "jset"};
+    std:: list <const char*> jumps = {"jmp", "ja", "jeq", "jneq", 
+    "jne", "jlt", "jle", "jgt", "jge", "jset"};
+
     InstructionType* FindInstructionType(std::string 
     command_name, std::list <string> parameters);
 
     public:
     Instruction(std::string instruction);
     bool is_function();
+    bool add_tag_code(std::string tag);
+    std::string get_function_name();
     bool add_next_instruction();
     //~Instruction();
 };

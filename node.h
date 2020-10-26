@@ -11,8 +11,11 @@ class Node {
     
     public:
     Node(std::string instruction);
+    bool start_function();
     bool add_next();
+    std::string get_function_name();
     void add_adjacent(Node* node);
+    bool add_tag_code(std::string tag);
     //~Node();
 };
 

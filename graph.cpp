@@ -9,6 +9,13 @@ void Graph:: add_node(std::string instruction) {
         if (previous_node->add_next()) {
             previous_node->add_adjacent(this->nodes.back());
         }
+        if (this->nodes.back()->start_function()) {
+            for (auto const& i : this->nodes){
+                if (i->add_tag_code(this->nodes.back()->get_function_name())) {
+                    i->add_adjacent(this->nodes.back());
+                }
+            }
+        }
     } else {
         this->nodes.push_back(new Node(instruction));
     }

@@ -80,6 +80,14 @@ bool Instruction:: is_function() {
     return this->_is_function;
 }
 
+std::string Instruction:: get_function_name() {
+    return this->function_name;
+}
+
 bool Instruction:: add_next_instruction() {
     return this->instructionType->add_next_instruction();
+}
+
+bool Instruction:: add_tag_code(std::string tag) {
+    return this->instructionType->add_tag_code(tag);
 }

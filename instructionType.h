@@ -11,7 +11,7 @@ class InstructionType {
     
     public:
     InstructionType();
-    virtual void add_tag_code();
+    virtual bool add_tag_code(std::string tag);
     virtual bool add_next_instruction();
     //~InstructionType();
 };
