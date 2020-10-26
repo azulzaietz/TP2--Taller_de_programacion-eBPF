@@ -6,7 +6,7 @@
 
 class Ret: public InstructionType {
     public:
-    Ret();
+    Ret(std::list <string> parameters);
     virtual bool add_next_instruction() override;
 };
 
