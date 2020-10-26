@@ -15,7 +15,7 @@ class Instruction {
     std::string instruction;
 
     bool _is_function = false;
-    std:: string function_name = NULL;
+    std:: string function_name;
 
     std::string command_name;
     std::list <string> parameters;
