@@ -3,33 +3,54 @@
 Instruction::Instruction (std::string instruction){
     this->instruction = instruction;
 
-    std::string function_name_delimiter = ": ";
+    std::string token = instruction;
+
+    std::string function_name_delimiter = ":";
     std::string command_delimiter = " ";
     std::string arguments_delimiter = ", ";
 
     size_t pos = 0;
-    std::string token;
-    if ((pos = instruction.find(function_name_delimiter)) != std::string::npos) {
+    for(int j=0; j < token.length(); j++){
+        if(isspace(token[j])){
+            pos++;
+        }
+        else{
+            break;
+        }
+    }
+    token.erase(0, pos);
+
+    pos = 0;
+    if ((pos = token.find(function_name_delimiter)) != std::string::npos) {
         this->_is_function = true;
-        this->function_name = instruction.substr(0, pos);
-        instruction.erase(0, pos + function_name_delimiter.length());
+        this->function_name = token.substr(0, pos);
+        token.erase(0, pos + function_name_delimiter.length());
+
+        pos = 0;
+        for(int j=0; j < token.length(); j++){
+            if(isspace(token[j])){
+                pos++;
+            }
+            else{
+                break;
+            }
+        }
+        token.erase(0, pos);
     }
-    if ((pos = instruction.find(command_delimiter)) != std::string::npos) {
-        //this->command_name = instruction.substr(0, pos);
-        cout << "hola" << instruction.substr(0, pos) << '\n';
-        instruction.erase(0, pos + command_delimiter.length());
+    pos = 0;
+    if ((pos = token.find(command_delimiter)) != std::string::npos) {
+        this->command_name = token.substr(0, pos);
+        token.erase(0, pos + command_delimiter.length());
     }
-    while ((pos = instruction.find(arguments_delimiter)) != std::string::npos) {
-        this->parameters.push_back(instruction.substr(0, pos));
-        instruction.erase(0, pos + command_delimiter.length());
+    pos = 0;
+    while ((pos = token.find(arguments_delimiter)) != std::string::npos) {
+        this->parameters.push_back(token.substr(0, pos));
+        token.erase(0, pos + command_delimiter.length());
     }
-    this->parameters.push_back(instruction.substr(0, instruction.size()));
+    this->parameters.push_back(token.substr(0, token.size()));
 
     this->instructionType = FindInstructionType(
         this->command_name, this->parameters);
-    
-    cout << "INSTRUCCION" << this->instruction << '\n';
-    cout << "COMMAND NAME" << this->command_name << '\n';
 }
 
 InstructionType* Instruction:: FindInstructionType(std::string 
