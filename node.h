@@ -11,6 +11,7 @@ class Node {
     
     public:
     Node(std::string instruction);
+    bool add_next();
     void add_adjacent(Node* node);
     //~Node();
 };
