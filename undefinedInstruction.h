@@ -1,8 +1,8 @@
 #include <iostream>
 #include "instructionType.h"
 
-class Ret: public InstructionType {
+class UndefinedInstruction: public InstructionType {
     public:
-    Ret();
+    UndefinedInstruction();
     virtual bool add_next_instruction() override;
 };

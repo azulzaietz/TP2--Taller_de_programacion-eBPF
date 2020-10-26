@@ -8,7 +8,13 @@ using namespace std;
 class Instruction {
 
     std::string instruction;
-    InstructionType instructionType;
+    bool _is_function;
+    std:: string function_name;
+    InstructionType* instructionType;
+    std:: list <char*> jumps = {"jmp", "ja", "jeq", "jneq", "jne", "jlt", "jle", "jgt", "jge", "jset"};
+    InstructionType* FindInstructionType(std::string 
+    instruction_name, std::list <char*> parameters);
+
     
     public:
     Instruction(std::string instruction);

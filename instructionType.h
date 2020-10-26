@@ -6,22 +6,15 @@
 #include <algorithm>
 #include "jump.h"
 #include "ret.h"
+#include "undefinedInstruction.h"
 using namespace std;
 
 class InstructionType {
-
-    std::string tag;
-    std:: list <char*> tags;
-    InstructionType* instruction;
-    std:: list <char*> jumps = {"jmp", "ja", "jeq", "jneq", "jne", "jlt", "jle", "jgt", "jge", "jset"};
     
     public:
     InstructionType();
-    InstructionType(std::string tag, std::string 
-        instruction_name, std::list <char*> parameters);
-    void add_tag_code();
-    bool is_function();
-    bool add_next_instruction();
+    virtual void add_tag_code();
+    virtual bool add_next_instruction();
     //~InstructionType();
 };
 
