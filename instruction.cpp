@@ -42,9 +42,8 @@ instruction_name, std::list <char*> parameters) {
         }
     } else if (instruction_name == "ret") {
         return new Ret();
-    } else {
-        return new UndefinedInstruction();
     }
+    return new UndefinedInstruction();
 }
 
 bool Instruction:: is_function() {

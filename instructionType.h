@@ -4,9 +4,7 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
-#include "jump.h"
-#include "ret.h"
-#include "undefinedInstruction.h"
+
 using namespace std;
 
 class InstructionType {

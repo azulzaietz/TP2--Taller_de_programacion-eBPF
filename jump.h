@@ -2,7 +2,7 @@
 #define JUMP_H
 
 #include <iostream>
-#include "instruction.h"
+#include "instructionType.h"
 
 class Jump: public InstructionType {
     std:: list <char*> tags;

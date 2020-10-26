@@ -3,6 +3,13 @@
 
 #include <iostream>
 #include "instructionType.h"
+#include "jump.h"
+#include "jumpUnconditional.h"
+#include "jumpConditional2Args.h"
+#include "jumpConditional3Args.h"
+#include "ret.h"
+#include "undefinedInstruction.h"
+
 using namespace std;
 
 class Instruction {
@@ -11,7 +18,7 @@ class Instruction {
     bool _is_function;
     std:: string function_name;
     InstructionType* instructionType;
-    std:: list <char*> jumps = {"jmp", "ja", "jeq", "jneq", "jne", "jlt", "jle", "jgt", "jge", "jset"};
+    std:: list <const char*> jumps = {"jmp", "ja", "jeq", "jneq", "jne", "jlt", "jle", "jgt", "jge", "jset"};
     InstructionType* FindInstructionType(std::string 
     instruction_name, std::list <char*> parameters);
 
