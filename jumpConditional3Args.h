@@ -5,7 +5,7 @@
 
 class JumpConditional3Args: public InstructionType {
     public:
-    JumpConditional3Args(char* arg, char* tag1, char* tag2);
+    JumpConditional3Args(string arg, string tag1, string tag2);
     virtual void add_tag_code() override;
     virtual bool add_next_instruction() override;
 };

@@ -1,6 +1,6 @@
 #include "jumpUnconditional.h"
 
-JumpUnconditional:: JumpUnconditional(char* tag) {
+JumpUnconditional:: JumpUnconditional(string tag) {
     
 };
 

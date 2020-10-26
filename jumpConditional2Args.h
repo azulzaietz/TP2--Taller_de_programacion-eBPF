@@ -5,7 +5,7 @@
 
 class JumpConditional2Args: public InstructionType {
     public:
-    JumpConditional2Args(char* arg, char* tag);
+    JumpConditional2Args(string arg, string tag);
     virtual void add_tag_code() override;
     virtual bool add_next_instruction() override;
 };

@@ -12,16 +12,18 @@
 using namespace std;
 
 class Instruction {
-
     std::string instruction;
-    bool _is_function;
+
+    bool _is_function = false;
     std:: string function_name;
+
+    std::string command_name;
+    std::list <string> parameters;
     InstructionType* instructionType;
     std:: list <const char*> jumps = {"jmp", "ja", "jeq", "jneq", "jne", "jlt", "jle", "jgt", "jge", "jset"};
     InstructionType* FindInstructionType(std::string 
-    instruction_name, std::list <char*> parameters);
+    command_name, std::list <string> parameters);
 
-    
     public:
     Instruction(std::string instruction);
     bool is_function();

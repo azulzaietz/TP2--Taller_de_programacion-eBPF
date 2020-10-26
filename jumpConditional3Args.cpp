@@ -1,6 +1,6 @@
 #include "jumpConditional3Args.h"
 
-JumpConditional3Args:: JumpConditional3Args(char* arg, char* tag1, char* tag2) {
+JumpConditional3Args:: JumpConditional3Args(string arg, string tag1, string tag2) {
 
 };
 

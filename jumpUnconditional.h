@@ -5,7 +5,7 @@
 
 class JumpUnconditional: public InstructionType {
     public:
-    JumpUnconditional(char* tag);
+    JumpUnconditional(string tag);
     virtual void add_tag_code() override;
     virtual bool add_next_instruction() override;
 };
