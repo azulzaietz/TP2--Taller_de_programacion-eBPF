@@ -71,25 +71,3 @@ void Graph:: DFS_wrapper() {
         this->unexecuted_nodes = true;
     }
 }
-
-/* 
-std::list<Node*>::iterator it;
-    for (it = this->nodes.begin(); 
-    it != this->nodes.end(); it++){
-        if (visited.empty()) {
-            visited.push_back((*it));
-            DFS((*it)->get_adjacents(), visited);
-        } else {
-            bool visited_node = (std::find(visited.begin(), 
-            visited.end(), (*it)) != visited.end());
-            if(!visited_node) {
-                visited.push_back((*it));
-                DFS((*it)->get_adjacents(), visited);
-            } 
-        }
-        
-    }
-    if (visited.size() < this->nodes.size()) {
-        this->unexecuted_nodes = true;
-    }
-*/
