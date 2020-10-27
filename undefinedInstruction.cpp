@@ -7,3 +7,7 @@ UndefinedInstruction:: UndefinedInstruction(std::list <string> parameters) {
 bool UndefinedInstruction:: add_next_instruction() {
     return true;
 }
+
+UndefinedInstruction:: ~UndefinedInstruction() {
+    
+}

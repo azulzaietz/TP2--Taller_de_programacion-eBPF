@@ -11,3 +11,7 @@ bool InstructionType:: add_tag_code(std::string tag) {
 bool InstructionType:: add_next_instruction() {
     return true;
 }
+
+InstructionType:: ~InstructionType() {
+
+}

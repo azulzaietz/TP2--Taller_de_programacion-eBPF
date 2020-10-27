@@ -13,7 +13,7 @@ class InstructionType {
     InstructionType();
     virtual bool add_tag_code(std::string tag);
     virtual bool add_next_instruction();
-    //~InstructionType();
+    virtual ~InstructionType();
 };
 
 #endif

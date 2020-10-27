@@ -9,6 +9,7 @@ class JumpUnconditional: public InstructionType {
     JumpUnconditional(string tag);
     virtual bool add_tag_code(std::string tag) override;
     virtual bool add_next_instruction() override;
+    virtual ~JumpUnconditional() override;
 };
 
 #endif

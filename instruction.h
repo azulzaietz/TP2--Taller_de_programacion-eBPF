@@ -32,7 +32,7 @@ class Instruction {
     bool add_tag_code(std::string tag);
     std::string get_function_name();
     bool add_next_instruction();
-    //~Instruction();
+    ~Instruction();
 };
 
 #endif

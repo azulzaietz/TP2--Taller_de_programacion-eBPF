@@ -15,3 +15,7 @@ bool JumpConditional3Args:: add_tag_code(std::string tag) {
 bool JumpConditional3Args:: add_next_instruction() {
     return false;
 }
+
+JumpConditional3Args:: ~JumpConditional3Args() {
+    
+}

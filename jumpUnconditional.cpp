@@ -14,3 +14,7 @@ bool JumpUnconditional:: add_tag_code(std::string tag) {
 bool JumpUnconditional:: add_next_instruction() {
     return false;
 }
+
+JumpUnconditional:: ~JumpUnconditional() {
+    
+}

@@ -10,6 +10,7 @@ class JumpConditional2Args: public InstructionType {
     JumpConditional2Args(string arg, string tag);
     virtual bool add_tag_code(std::string tag) override;
     virtual bool add_next_instruction() override;
+    virtual ~JumpConditional2Args() override;
 };
 
 #endif

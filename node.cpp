@@ -27,3 +27,7 @@ bool Node:: add_tag_code(std::string tag) {
 std::list<Node*> Node:: get_adjacents() {
     return this->adjacents;
 }
+
+Node:: ~Node() {
+    delete(this->instruction);
+}
