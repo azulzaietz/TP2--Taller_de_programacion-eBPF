@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 void Graph:: add_node(std::string instruction) {
-    if (!nodes.empty()) {
+    if (!this->nodes.empty()) {
         Node* previous_node = this->nodes.back();
         this->nodes.push_back(new Node(instruction));
         if (previous_node->add_next()) {
