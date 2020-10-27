@@ -11,11 +11,11 @@ class eBPF {
     Graph graph;
     
     public:
-    //eBPF();
+    eBPF();
     void read_code();
     void find_loops();
     void find_unexecuted_nodes();
-    //~eBPF();
+    ~eBPF();
 };
 
 #endif

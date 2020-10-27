@@ -17,13 +17,13 @@ class Graph {
     void DFS_wrapper();
     
     public:
-    //Graph();
+    Graph();
     //si lo primero es una etiqueta llama a agregar etiqueta para cada nodo en la lista de nodos, 
     //si no, crea un nodo solamente.
     void add_node(std::string instruction);
     bool find_loops();
     bool find_unexecuted_nodes();
-    //~Graph();
+    ~Graph();
 };
 
 #endif

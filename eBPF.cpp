@@ -1,5 +1,7 @@
 #include "eBPF.h"
 
+eBPF:: eBPF() {}
+
 void eBPF:: read_code() {
     string line;
     ifstream myfile ("prueba.txt");
@@ -23,4 +25,8 @@ void eBPF:: find_unexecuted_nodes() {
     if (this->graph.find_unexecuted_nodes()) {
         cout << "FAIL: unused instructions detected" << '\n';
     }
+}
+
+eBPF:: ~eBPF() {
+    
 }

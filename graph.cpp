@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdlib>
 
+Graph:: Graph() {}
+
 void Graph:: add_node(std::string instruction) {
     if (!this->nodes.empty()) {
         Node* previous_node = this->nodes.back();
@@ -69,5 +71,13 @@ void Graph:: DFS_wrapper() {
 
     if (visited.size() < this->nodes.size()) {
         this->unexecuted_nodes = true;
+    }
+}
+
+Graph:: ~Graph() {
+    std::list<Node*>::iterator it;
+    for (it = this->nodes.begin(); 
+    it != this->nodes.end(); it++){
+        delete (*it);
     }
 }
