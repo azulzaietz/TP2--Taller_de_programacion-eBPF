@@ -24,7 +24,6 @@ void Graph:: add_node(std::string instruction) {
 }
 
 bool Graph:: find_loops() {
-    this->DFS_wrapper();
     return this->loops;
 }
 
@@ -39,16 +38,19 @@ std::map<Node*, int> order, std::map<Node*, Node*> parents)
 { 
     visited.push_back(origin);
 
+    if (origin->get_adjacents().empty()) return;
+
     std::list<Node*>::iterator it;
     for (it = origin->get_adjacents().begin(); 
     it != origin->get_adjacents().end(); it++)
     {
+        Node* node = (*it);
         bool visited_node = (std::find(visited.begin(), 
         visited.end(), (*it)) != visited.end());
         if(!visited_node) {
-            parents[(*it)] = origin;
-            order[(*it)] = order[origin] + 1;
-            DFS((*it), visited, order, parents);
+            parents[node] = origin;
+            order[node] = order[origin] + 1;
+            return DFS(node, visited, order, parents);
         }
         
     }
@@ -62,7 +64,7 @@ void Graph:: DFS_wrapper() {
 
     parents[this->nodes.front()] = NULL;
     order[this->nodes.front()] = 0;
-
+    
     DFS(this->nodes.front(), visited, order, parents);
 
     if (visited.size() < this->nodes.size()) {
