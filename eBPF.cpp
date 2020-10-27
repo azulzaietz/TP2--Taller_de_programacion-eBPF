@@ -14,9 +14,13 @@ void eBPF:: read_code() {
 }
 
 void eBPF:: find_loops() {
-    this->graph.find_loops();
+    if (this->graph.find_loops()) {
+        cout << "FAIL: cycle detected" << '\n';
+    }
 }
 
 void eBPF:: find_unexecuted_nodes() {
-    this->graph.find_unexecuted_nodes();
+    if (this->graph.find_unexecuted_nodes()) {
+        cout << "FAIL: unused instructions detected" << '\n';
+    }
 }

@@ -23,10 +23,49 @@ void Graph:: add_node(std::string instruction) {
     }
 }
 
-void Graph:: find_loops() {
-    
+bool Graph:: find_loops() {
+    this->DFS_wrapper();
+    return this->loops;
 }
 
-void Graph:: find_unexecuted_nodes() {
-    
+bool Graph:: find_unexecuted_nodes() {
+    this->DFS_wrapper();
+    return this->unexecuted_nodes;
+}
+
+void Graph:: DFS (std::list<Node*> adjacents, std::list<Node*> visited) { 
+    std::list<Node*>::iterator it;
+    for (it = adjacents.begin(); 
+    it != adjacents.end(); it++){
+        bool visited_node = (std::find(visited.begin(), 
+        visited.end(), (*it)) != visited.end());
+        if(!visited_node) {
+            visited.push_back((*it));
+            DFS((*it)->get_adjacents(), visited);
+        }
+        
+    }
+} 
+
+void Graph:: DFS_wrapper() { 
+    std::list<Node*> visited;
+    std::list<Node*>::iterator it;
+    for (it = this->nodes.begin(); 
+    it != this->nodes.end(); it++){
+        if (visited.empty()) {
+            visited.push_back((*it));
+            DFS((*it)->get_adjacents(), visited);
+        } else {
+            bool visited_node = (std::find(visited.begin(), 
+            visited.end(), (*it)) != visited.end());
+            if(!visited_node) {
+                visited.push_back((*it));
+                DFS((*it)->get_adjacents(), visited);
+            } 
+        }
+        
+    }
+    if (visited.size() < this->nodes.size()) {
+        this->unexecuted_nodes = true;
+    }
 }

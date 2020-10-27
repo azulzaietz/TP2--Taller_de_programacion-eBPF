@@ -7,7 +7,7 @@ using namespace std;
 
 class Node {
     Instruction* instruction;
-    std::list < Node* > adjacents;
+    std::list<Node*> adjacents;
     
     public:
     Node(std::string instruction);
@@ -16,6 +16,7 @@ class Node {
     std::string get_function_name();
     void add_adjacent(Node* node);
     bool add_tag_code(std::string tag);
+    std::list<Node*> get_adjacents();
     //~Node();
 };
 
