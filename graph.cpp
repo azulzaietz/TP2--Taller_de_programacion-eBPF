@@ -64,6 +64,10 @@ void Graph:: DFS_wrapper() {
     order[this->nodes.front()] = 0;
 
     DFS(this->nodes.front(), visited, order, parents);
+
+    if (visited.size() < this->nodes.size()) {
+        this->unexecuted_nodes = true;
+    }
 }
 
 /* 

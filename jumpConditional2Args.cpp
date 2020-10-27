@@ -2,7 +2,7 @@
 
 JumpConditional2Args:: JumpConditional2Args(string arg, string tag) {
     this->tags.push_back(tag);
-    cout << "JUMP 2 ARGS" << arg << tag << '\n';
+    //cout << "JUMP 2 ARGS" << arg << tag << '\n';
 }
 
 bool JumpConditional2Args:: add_tag_code(std::string tag) {
