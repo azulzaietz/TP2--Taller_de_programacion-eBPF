@@ -33,23 +33,41 @@ bool Graph:: find_unexecuted_nodes() {
     return this->unexecuted_nodes;
 }
 
-void Graph:: DFS (std::list<Node*> adjacents, std::list<Node*> visited) { 
+void Graph:: DFS 
+(Node* origin, std::list<Node*> visited, 
+std::map<Node*, int> order, std::map<Node*, Node*> parents) 
+{ 
+    visited.push_back(origin);
+
     std::list<Node*>::iterator it;
-    for (it = adjacents.begin(); 
-    it != adjacents.end(); it++){
+    for (it = origin->get_adjacents().begin(); 
+    it != origin->get_adjacents().end(); it++)
+    {
         bool visited_node = (std::find(visited.begin(), 
         visited.end(), (*it)) != visited.end());
         if(!visited_node) {
-            visited.push_back((*it));
-            DFS((*it)->get_adjacents(), visited);
+            parents[(*it)] = origin;
+            order[(*it)] = order[origin] + 1;
+            DFS((*it), visited, order, parents);
         }
         
     }
 } 
 
 void Graph:: DFS_wrapper() { 
+    	
+    std::map<Node*, int> order;
+    std::map<Node*, Node*> parents;
     std::list<Node*> visited;
-    std::list<Node*>::iterator it;
+
+    parents[this->nodes.front()] = NULL;
+    order[this->nodes.front()] = 0;
+
+    DFS(this->nodes.front(), visited, order, parents);
+}
+
+/* 
+std::list<Node*>::iterator it;
     for (it = this->nodes.begin(); 
     it != this->nodes.end(); it++){
         if (visited.empty()) {
@@ -68,4 +86,4 @@ void Graph:: DFS_wrapper() {
     if (visited.size() < this->nodes.size()) {
         this->unexecuted_nodes = true;
     }
-}
+*/

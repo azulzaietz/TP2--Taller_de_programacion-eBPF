@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <list>
+#include <map>
 #include "node.h"
 using namespace std;
 
@@ -11,7 +12,8 @@ class Graph {
     std::list < Node* > nodes;
     bool loops = false;
     bool unexecuted_nodes = false;
-    void DFS (std::list<Node*> adjacents, std::list<Node*> visited);
+    void DFS (Node* origin, std::list<Node*> visited, 
+    std::map<Node*, int> order, std::map<Node*, Node*> parents);
     void DFS_wrapper();
     
     public:

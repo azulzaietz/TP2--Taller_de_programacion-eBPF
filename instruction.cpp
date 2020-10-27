@@ -10,7 +10,7 @@ Instruction::Instruction (std::string instruction){
     std::string arguments_delimiter = ", ";
 
     size_t pos = 0;
-    for(int j=0; j < token.length(); j++){
+    for(size_t j=0; j < token.length(); j++){
         if(isspace(token[j])){
             pos++;
         }
@@ -27,7 +27,7 @@ Instruction::Instruction (std::string instruction){
         token.erase(0, pos + function_name_delimiter.length());
 
         pos = 0;
-        for(int j=0; j < token.length(); j++){
+        for(size_t j=0; j < token.length(); j++){
             if(isspace(token[j])){
                 pos++;
             }
