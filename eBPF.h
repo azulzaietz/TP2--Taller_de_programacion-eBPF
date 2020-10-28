@@ -13,8 +13,7 @@ class eBPF {
     public:
     eBPF();
     void read_code();
-    void find_loops();
-    void find_unexecuted_nodes();
+    void verify();
     ~eBPF();
 };
 
