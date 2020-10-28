@@ -23,8 +23,7 @@ class Instruction {
     std:: list <const char*> jumps = {"jmp", "ja", "jeq", "jneq", 
     "jne", "jlt", "jle", "jgt", "jge", "jset"};
 
-    InstructionType* FindInstructionType(std::string 
-    command_name, std::list <string> parameters);
+    InstructionType* FindInstructionType();
 
     public:
     Instruction(std::string instruction);

@@ -1,6 +1,6 @@
 #include "jumpConditional3Args.h"
 
-JumpConditional3Args:: JumpConditional3Args(string arg, string tag1, string tag2) {
+JumpConditional3Args:: JumpConditional3Args(string& arg, string& tag1, string& tag2) {
     this->tags.push_back(tag1);
     this->tags.push_back(tag2);
     //cout << "JUMP 3 ARGS" << arg << tag1 << tag2 << '\n';

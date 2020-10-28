@@ -72,6 +72,12 @@ void Graph:: DFS_wrapper() {
     if (visited.size() < this->nodes.size()) {
         this->unexecuted_nodes = true;
     }
+
+    /*
+    if (visited.back()->get_command_name() != "ret") {
+        this->loops = true;
+    }
+    */
 }
 
 Graph:: ~Graph() {

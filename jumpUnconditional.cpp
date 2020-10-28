@@ -1,6 +1,6 @@
 #include "jumpUnconditional.h"
 
-JumpUnconditional:: JumpUnconditional(string tag) {
+JumpUnconditional:: JumpUnconditional(string& tag) {
     this->tags.push_back(tag);
     //cout << "JUMP UNCONDITIONAL tag:" << tag << '\n';
 }

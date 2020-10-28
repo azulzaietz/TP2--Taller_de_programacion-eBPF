@@ -49,28 +49,26 @@ Instruction::Instruction (std::string instruction){
     }
     this->parameters.push_back(token.substr(0, token.size()));
 
-    this->instructionType = FindInstructionType(
-        this->command_name, this->parameters);
+    this->instructionType = FindInstructionType();
 }
 
-InstructionType* Instruction:: FindInstructionType(std::string 
-instruction_name, std::list <string> parameters) {
+InstructionType* Instruction:: FindInstructionType() {
 
     bool jump = (std::find(this->jumps.begin(), this->jumps.end(), 
-                instruction_name) != this->jumps.end());
+                this->command_name) != this->jumps.end());
     if (jump) {
-        if (parameters.size() == 1) {
-            return new JumpUnconditional(parameters.back());
-        } else if (parameters.size() == 2) {
-            return new JumpConditional2Args(parameters.front(), parameters.back());
-        } else if (parameters.size() == 3) {
-            string param1 = parameters.front();
-            parameters.pop_front();
-            string param2 = parameters.front();
-            string param3 = parameters.back();
+        if (this->parameters.size() == 1) {
+            return new JumpUnconditional(this->parameters.back());
+        } else if (this->parameters.size() == 2) {
+            return new JumpConditional2Args(this->parameters.front(), this->parameters.back());
+        } else if (this->parameters.size() == 3) {
+            string param1 = this->parameters.front();
+            this->parameters.pop_front();
+            string param2 = this->parameters.front();
+            string param3 = this->parameters.back();
             return new JumpConditional3Args(param1, param2, param3);
         }
-    } else if (instruction_name == "ret") {
+    } else if (this->command_name == "ret") {
         return new Ret(this->parameters);
     }
     return new UndefinedInstruction(this->parameters);

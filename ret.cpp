@@ -1,6 +1,6 @@
 #include "ret.h"
 
-Ret:: Ret(std::list <string> parameters) {
+Ret:: Ret(std::list <string>& parameters) {
     //cout << "ret arg: " << parameters.front() << '\n';
 }
 
