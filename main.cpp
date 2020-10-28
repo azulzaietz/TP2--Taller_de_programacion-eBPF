@@ -4,7 +4,7 @@
 int main () {
    eBPF ebpf;
    ebpf.read_code();
-   //ebpf.find_loops();
-   //ebpf.find_unexecuted_nodes();
+   ebpf.find_loops();
+   ebpf.find_unexecuted_nodes();
    return 0;
 }

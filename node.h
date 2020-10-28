@@ -16,7 +16,7 @@ class Node {
     std::string get_function_name();
     void add_adjacent(Node* node);
     bool add_tag_code(std::string tag);
-    std::list<Node*> get_adjacents();
+    std::list<Node*>& get_adjacents();
     ~Node();
 };
 

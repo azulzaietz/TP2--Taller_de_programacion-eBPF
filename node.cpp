@@ -24,7 +24,7 @@ bool Node:: add_tag_code(std::string tag) {
     return this->instruction->add_tag_code(tag);
 }
 
-std::list<Node*> Node:: get_adjacents() {
+std::list<Node*>& Node:: get_adjacents() {
     return this->adjacents;
 }
 

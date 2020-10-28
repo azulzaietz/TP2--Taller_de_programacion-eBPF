@@ -12,8 +12,9 @@ class Graph {
     std::list < Node* > nodes;
     bool loops = false;
     bool unexecuted_nodes = false;
-    void DFS (Node* origin, std::list<Node*> visited, 
-    std::map<Node*, int> order, std::map<Node*, Node*> parents);
+    void DFS 
+    (Node* origin, std::list<Node*>& visited, 
+    std::map<Node*, int>& order, std::map<Node*, Node*>& parents);
     void DFS_wrapper();
     
     public:

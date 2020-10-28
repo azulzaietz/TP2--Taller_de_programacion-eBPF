@@ -35,8 +35,8 @@ bool Graph:: find_unexecuted_nodes() {
 }
 
 void Graph:: DFS 
-(Node* origin, std::list<Node*> visited, 
-std::map<Node*, int> order, std::map<Node*, Node*> parents) 
+(Node* origin, std::list<Node*>& visited, 
+std::map<Node*, int>& order, std::map<Node*, Node*>& parents) 
 { 
     visited.push_back(origin);
 
@@ -48,7 +48,7 @@ std::map<Node*, int> order, std::map<Node*, Node*> parents)
     {
         Node* node = (*it);
         bool visited_node = (std::find(visited.begin(), 
-        visited.end(), (*it)) != visited.end());
+        visited.end(), node) != visited.end());
         if(!visited_node) {
             parents[node] = origin;
             order[node] = order[origin] + 1;
