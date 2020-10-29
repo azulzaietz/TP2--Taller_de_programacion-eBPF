@@ -45,7 +45,7 @@ Instruction::Instruction (std::string instruction){
     pos = 0;
     while ((pos = token.find(arguments_delimiter)) != std::string::npos) {
         this->parameters.push_back(token.substr(0, pos));
-        token.erase(0, pos + command_delimiter.length());
+        token.erase(0, pos + arguments_delimiter.length());
     }
     this->parameters.push_back(token.substr(0, token.size()));
 
