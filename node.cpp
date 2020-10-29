@@ -24,6 +24,10 @@ bool Node:: add_tag_code(std::string tag) {
     return this->instruction->add_tag_code(tag);
 }
 
+std::string& Node:: get_command_name() {
+    return this->instruction->get_command_name();
+}
+
 std::list<Node*>& Node:: get_adjacents() {
     return this->adjacents;
 }

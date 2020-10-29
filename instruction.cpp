@@ -90,6 +90,9 @@ bool Instruction:: add_tag_code(std::string tag) {
     return this->instructionType->add_tag_code(tag);
 }
 
+std::string& Instruction:: get_command_name() {
+    return this->command_name;
+}
 
 Instruction:: ~Instruction() {
     delete (this->instructionType);

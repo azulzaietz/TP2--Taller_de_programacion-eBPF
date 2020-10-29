@@ -30,6 +30,7 @@ class Instruction {
     bool is_function();
     bool add_tag_code(std::string tag);
     std::string get_function_name();
+    std::string& get_command_name();
     bool add_next_instruction();
     ~Instruction();
 };
