@@ -22,8 +22,10 @@ class Graph {
     //si lo primero es una etiqueta llama a agregar etiqueta para cada nodo en la lista de nodos, 
     //si no, crea un nodo solamente.
     void add_node(std::string instruction);
+    void complete_graph();
     bool find_loops();
     bool find_unexecuted_nodes();
+    void print_grafo();
     ~Graph();
 };
 

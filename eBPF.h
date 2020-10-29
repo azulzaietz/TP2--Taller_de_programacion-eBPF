@@ -14,6 +14,7 @@ class eBPF {
     eBPF();
     void read_code();
     void verify();
+    void print_grafo();
     ~eBPF();
 };
 
