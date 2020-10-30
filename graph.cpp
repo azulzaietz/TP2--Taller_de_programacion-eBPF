@@ -8,27 +8,34 @@ void Graph:: add_node(std::string instruction) {
     if (!this->nodes.empty()) {
         Node* previous_node = this->nodes.back();
         this->nodes.push_back(new Node(instruction));
+        if (this->nodes.back()->need_tag_code()) {
+            //cout << "buscando para" << this->nodes.back()->get_command_name() << '\n';
+            std::list<Node*>::iterator it1;
+            for (it1 = this->nodes.begin(); 
+            it1 != this->nodes.end(); it1++){
+                //cout << "del comando" << (*it1)->get_command_name() << '\n';
+                //cout << "tag: " << (*it1)->get_function_name() << '\n';
+                if (this->nodes.back()->add_tag_code((*it1)->get_function_name())){
+                    this->nodes.back()->add_adjacent(*it1);
+                    break;
+                }
+                
+            }
+        }
         if (previous_node->add_next()) {
             previous_node->add_adjacent(this->nodes.back());
         }
-    } else {
-        this->nodes.push_back(new Node(instruction));
-    }
-}
-
-void Graph:: complete_graph() {
-    std::list<Node*>::iterator it1;
-    for (it1 = this->nodes.begin(); 
-    it1 != this->nodes.end(); it1++){
-        if ((*it1)->start_function()) {
+        if (this->nodes.back()->start_function()) {
             std::list<Node*>::iterator it;
             for (it = this->nodes.begin(); 
             it != this->nodes.end(); it++){
-                if ((*it)->add_tag_code((*it1)->get_function_name())) {
-                    (*it)->add_adjacent((*it1));
+                if ((*it)->add_tag_code(this->nodes.back()->get_function_name())) {
+                    (*it)->add_adjacent(this->nodes.back());
                 }
             }
         }
+    } else {
+        this->nodes.push_back(new Node(instruction));
     }
 }
 
@@ -94,10 +101,11 @@ void Graph:: DFS_wrapper() {
         this->unexecuted_nodes = true;
     }
 
-    
+    /*
     if (visited.back()->get_command_name() != "ret") {
         this->loops = true;
     }
+    */
 }
 
 Graph:: ~Graph() {

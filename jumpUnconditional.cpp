@@ -5,6 +5,10 @@ JumpUnconditional:: JumpUnconditional(string& tag) {
     //cout << "JUMP UNCONDITIONAL tag:" << tag << '\n';
 }
 
+bool JumpUnconditional:: need_tag_code() {
+    return true;
+}
+
 bool JumpUnconditional:: add_tag_code(std::string tag) {
     bool found_tag = (std::find(this->tags.begin(), 
         this->tags.end(), tag) != this->tags.end());

@@ -5,6 +5,10 @@ JumpConditional2Args:: JumpConditional2Args(string& arg, string& tag) {
     //cout << "JUMP 2 ARGS" << arg << tag << '\n';
 }
 
+bool JumpConditional2Args:: need_tag_code() {
+    return true;
+}
+
 bool JumpConditional2Args:: add_tag_code(std::string tag) {
     bool found_tag = (std::find(this->tags.begin(), 
         this->tags.end(), tag) != this->tags.end());

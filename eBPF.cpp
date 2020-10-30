@@ -9,7 +9,6 @@ void eBPF:: read_code() {
         while (getline (myfile,line)) {
             this->graph.add_node(line);
         }
-        this->graph.complete_graph();
         myfile.close();
     } else { 
         cout << "Unable to open file"; 

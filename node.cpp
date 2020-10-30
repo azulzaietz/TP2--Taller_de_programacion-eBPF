@@ -20,6 +20,10 @@ std::string Node:: get_function_name() {
     return this->instruction->get_function_name();
 }
 
+bool Node:: need_tag_code() {
+    return this->instruction->need_tag_code();
+}
+
 bool Node:: add_tag_code(std::string tag) {
     return this->instruction->add_tag_code(tag);
 }

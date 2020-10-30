@@ -28,6 +28,7 @@ class Instruction {
     public:
     Instruction(std::string instruction);
     bool is_function();
+    bool need_tag_code();
     bool add_tag_code(std::string tag);
     std::string get_function_name();
     std::string& get_command_name();

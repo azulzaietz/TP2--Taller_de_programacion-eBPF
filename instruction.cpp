@@ -86,6 +86,10 @@ bool Instruction:: add_next_instruction() {
     return this->instructionType->add_next_instruction();
 }
 
+bool Instruction:: need_tag_code() {
+    return this->instructionType->need_tag_code();
+}
+
 bool Instruction:: add_tag_code(std::string tag) {
     return this->instructionType->add_tag_code(tag);
 }
