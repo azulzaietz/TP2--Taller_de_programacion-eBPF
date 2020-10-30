@@ -16,6 +16,7 @@ void eBPF:: read_code() {
 }
 
 void eBPF:: verify() {
+    this->graph.verify();
     if (this->graph.find_loops()) {
         cout << "FAIL: cycle detected" << '\n';
     } else if (this->graph.find_unexecuted_nodes()) {

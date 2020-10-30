@@ -9,12 +9,9 @@ void Graph:: add_node(std::string instruction) {
         Node* previous_node = this->nodes.back();
         this->nodes.push_back(new Node(instruction));
         if (this->nodes.back()->need_tag_code()) {
-            //cout << "buscando para" << this->nodes.back()->get_command_name() << '\n';
             std::list<Node*>::iterator it1;
             for (it1 = this->nodes.begin(); 
             it1 != this->nodes.end(); it1++){
-                //cout << "del comando" << (*it1)->get_command_name() << '\n';
-                //cout << "tag: " << (*it1)->get_function_name() << '\n';
                 if (this->nodes.back()->add_tag_code((*it1)->get_function_name())){
                     this->nodes.back()->add_adjacent(*it1);
                     break;
@@ -53,12 +50,15 @@ void Graph:: print_grafo() {
     }
 }
 
+void Graph:: verify() {
+    this->DFS_wrapper();
+}
+
 bool Graph:: find_loops() {
     return this->loops;
 }
 
 bool Graph:: find_unexecuted_nodes() {
-    this->DFS_wrapper();
     return this->unexecuted_nodes;
 }
 
@@ -77,6 +77,9 @@ std::map<Node*, int>& order, std::map<Node*, Node*>& parents)
         Node* node = (*it);
         bool visited_node = (std::find(visited.begin(), 
         visited.end(), node) != visited.end());
+        if(visited_node && origin->add_tag_code(node->get_function_name())) {
+            this->loops = true;
+        }
         if(!visited_node) {
             parents[node] = origin;
             order[node] = order[origin] + 1;
@@ -94,18 +97,12 @@ void Graph:: DFS_wrapper() {
 
     parents[this->nodes.front()] = NULL;
     order[this->nodes.front()] = 0;
-    
+
     DFS(this->nodes.front(), visited, order, parents);
 
     if (visited.size() < this->nodes.size()) {
         this->unexecuted_nodes = true;
     }
-
-    /*
-    if (visited.back()->get_command_name() != "ret") {
-        this->loops = true;
-    }
-    */
 }
 
 Graph:: ~Graph() {

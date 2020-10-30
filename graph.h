@@ -23,6 +23,7 @@ class Graph {
     //si no, crea un nodo solamente.
     void add_node(std::string instruction);
     void complete_graph();
+    void verify();
     bool find_loops();
     bool find_unexecuted_nodes();
     void print_grafo();
