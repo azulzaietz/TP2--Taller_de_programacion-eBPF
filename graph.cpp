@@ -37,6 +37,7 @@ void Graph:: add_node(std::string instruction) {
 }
 
 void Graph:: print_grafo() {
+    cout << "----------------IMPRESION GRAFO------------" << '\n';
     std::list<Node*>::iterator it;
     for (it = this->nodes.begin(); 
     it != this->nodes.end(); it++){
@@ -64,41 +65,42 @@ bool Graph:: find_unexecuted_nodes() {
 
 void Graph:: DFS 
 (Node* origin, std::list<Node*>& visited, 
-std::map<Node*, int>& order, std::map<Node*, Node*>& parents) 
+std::list<Node*>& stack) 
 { 
     visited.push_back(origin);
-
-    if (origin->get_adjacents().empty()) return;
+    stack.push_back(origin);
+    //stack.push(origin);
 
     std::list<Node*>::iterator it;
     for (it = origin->get_adjacents().begin(); 
     it != origin->get_adjacents().end(); it++)
     {
         Node* node = (*it);
+
+        bool stack_node = (std::find(stack.begin(), 
+        stack.end(), node) != stack.end());
+
         bool visited_node = (std::find(visited.begin(), 
         visited.end(), node) != visited.end());
-        if(visited_node && origin->add_tag_code(node->get_function_name())) {
+
+        if (stack_node) {
             this->loops = true;
-        }
-        if(!visited_node) {
-            parents[node] = origin;
-            order[node] = order[origin] + 1;
-            return DFS(node, visited, order, parents);
-        }
-        
+            return;
+        } else if (!visited_node){
+            DFS(node, visited, stack);
+        }  
     }
-} 
+    //stack.pop();
+    stack.pop_back(); 
+    
+}
 
 void Graph:: DFS_wrapper() { 
-    	
-    std::map<Node*, int> order;
-    std::map<Node*, Node*> parents;
+
     std::list<Node*> visited;
+    std::list<Node*> stack;
 
-    parents[this->nodes.front()] = NULL;
-    order[this->nodes.front()] = 0;
-
-    DFS(this->nodes.front(), visited, order, parents);
+    DFS(this->nodes.front(), visited, stack);
 
     if (visited.size() < this->nodes.size()) {
         this->unexecuted_nodes = true;

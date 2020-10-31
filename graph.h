@@ -5,6 +5,7 @@
 #include <fstream>
 #include <list>
 #include <map>
+//#include <stack>
 #include "node.h"
 using namespace std;
 
@@ -14,7 +15,7 @@ class Graph {
     bool unexecuted_nodes = false;
     void DFS 
     (Node* origin, std::list<Node*>& visited, 
-    std::map<Node*, int>& order, std::map<Node*, Node*>& parents);
+    std::list<Node*>& stack);
     void DFS_wrapper();
     
     public:

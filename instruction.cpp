@@ -37,11 +37,23 @@ Instruction::Instruction (std::string instruction){
         }
         token.erase(0, pos);
     }
+    
     pos = 0;
     if ((pos = token.find(command_delimiter)) != std::string::npos) {
         this->command_name = token.substr(0, pos);
         token.erase(0, pos + command_delimiter.length());
     }
+    pos = 0;
+    for(size_t j=0; j < token.length(); j++){
+        if(isspace(token[j])){
+            pos++;
+        }
+        else{
+            break;
+        }
+    }
+    token.erase(0, pos);
+
     pos = 0;
     while ((pos = token.find(arguments_delimiter)) != std::string::npos) {
         this->parameters.push_back(token.substr(0, pos));
