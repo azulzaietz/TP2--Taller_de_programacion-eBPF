@@ -2,7 +2,6 @@
 
 JumpUnconditional:: JumpUnconditional(string& tag) {
     this->tags.push_back(tag);
-    //cout << "JUMP UNCONDITIONAL tag:" << tag << '\n';
 }
 
 bool JumpUnconditional:: need_tag_code() {
