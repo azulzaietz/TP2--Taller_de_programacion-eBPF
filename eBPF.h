@@ -5,15 +5,14 @@
 #include <string>
 #include <iostream>
 #include "graph.h"
-using namespace std;
 
 class eBPF {
     Graph graph;
     
     public:
     eBPF();
-    void read_code();
-    void verify();
+    void read_code(const char* fn);
+    const char* verify();
     void print_grafo();
     ~eBPF();
 };

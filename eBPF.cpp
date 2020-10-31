@@ -2,9 +2,9 @@
 
 eBPF:: eBPF() {}
 
-void eBPF:: read_code() {
+void eBPF:: read_code(const char* fn) {
     string line;
-    ifstream myfile ("prueba.txt");
+    ifstream myfile (fn);
     if (myfile.is_open()) {
         while (getline (myfile,line)) {
             this->graph.add_node(line);
@@ -15,14 +15,14 @@ void eBPF:: read_code() {
     }
 }
 
-void eBPF:: verify() {
+const char* eBPF:: verify() {
     this->graph.verify();
     if (this->graph.find_loops()) {
-        cout << "FAIL: cycle detected" << '\n';
+        return "FAIL: cycle detected";
     } else if (this->graph.find_unexecuted_nodes()) {
-        cout << "FAIL: unused instructions detected" << '\n';
+        return "FAIL: unused instructions detected";
     } else {
-        cout << "GOOD" << '\n';
+        return "GOOD";
     }
 }
 
