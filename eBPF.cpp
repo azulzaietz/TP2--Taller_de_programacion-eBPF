@@ -7,7 +7,9 @@ void eBPF:: read_code(const char* fn) {
     ifstream myfile (fn);
     if (myfile.is_open()) {
         while (getline (myfile,line)) {
-            this->graph.add_node(line);
+            if (!line.empty()) {
+                this->graph.add_node(line);
+            }
         }
         myfile.close();
     } else { 
