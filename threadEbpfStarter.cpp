@@ -24,3 +24,5 @@ void ThreadEbpfStarter:: start() {
 
     this->opc.showOutPut();
 }
+
+ThreadEbpfStarter:: ~ThreadEbpfStarter() {}
