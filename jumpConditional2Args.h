@@ -2,6 +2,8 @@
 #define JUMP_2_ARGS_H
 
 #include "instructionType.h"
+#include <list>
+#include <string>
 
 class JumpConditional2Args: public InstructionType {
     std::list <std::string> tags;

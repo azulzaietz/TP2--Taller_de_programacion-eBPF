@@ -2,11 +2,13 @@
 #define UNDEFINED_INSTRUCTION_H
 
 #include <iostream>
+#include <list>
+#include <string>
 #include "instructionType.h"
 
 class UndefinedInstruction: public InstructionType {
     public:
-    UndefinedInstruction(std::list <std::string>& parameters);
+    explicit UndefinedInstruction(std::list <std::string>& parameters);
     virtual bool add_next_instruction() override;
     virtual ~UndefinedInstruction() override;
 };

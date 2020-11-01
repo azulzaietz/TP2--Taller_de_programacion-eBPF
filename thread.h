@@ -17,8 +17,6 @@ class Thread {
         Thread(Thread &&other);
         Thread &operator=(Thread &&other);
         virtual ~Thread();
-
-    
 };
 
 #endif

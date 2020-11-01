@@ -26,7 +26,7 @@ class Instruction {
     InstructionType* FindInstructionType();
 
     public:
-    Instruction(std::string instruction);
+    explicit Instruction(std::string instruction);
     bool is_function();
     bool need_tag_code();
     bool add_tag_code(std::string tag);

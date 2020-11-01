@@ -3,11 +3,12 @@
 
 #include "instructionType.h"
 #include <list>
+#include <string>
 
 class JumpUnconditional: public InstructionType {
     std::list <std::string> tags;
     public:
-    JumpUnconditional(std::string& tag);
+    explicit JumpUnconditional(std::string& tag);
     virtual bool need_tag_code() override;
     virtual bool add_tag_code(std::string tag) override;
     virtual bool add_next_instruction() override;

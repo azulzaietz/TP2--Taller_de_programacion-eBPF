@@ -10,7 +10,7 @@ class Node {
     std::list<Node*> adjacents;
     
     public:
-    Node(std::string instruction);
+    explicit Node(std::string instruction);
     bool start_function();
     bool add_next();
     std::string& get_function_name();

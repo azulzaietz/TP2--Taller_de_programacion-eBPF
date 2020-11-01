@@ -11,7 +11,7 @@ class OutPutController {
     std::mutex mtx;
 
     public:
-    void addOutPut(std::string outPutFn, std::string outPutCheck);
+    void addOutPut(std::string& outPutFn, std::string& outPutCheck);
     void showOutPut();
 };
 
