@@ -71,7 +71,6 @@ std::list<Node*>& stack)
 { 
     visited.push_back(origin);
     stack.push_back(origin);
-    //stack.push(origin);
 
     std::list<Node*>::iterator it;
     for (it = origin->get_adjacents().begin(); 
@@ -92,7 +91,6 @@ std::list<Node*>& stack)
             DFS(node, visited, stack);
         }  
     }
-    //stack.pop();
     stack.pop_back();
 }
 
