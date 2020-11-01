@@ -1,6 +1,7 @@
 #include "graph.h"
 #include <iostream>
 #include <cstdlib>
+#include <string>
 
 Graph:: Graph() {}
 
@@ -12,11 +13,11 @@ void Graph:: add_node(std::string instruction) {
             std::list<Node*>::iterator it1;
             for (it1 = this->nodes.begin(); 
             it1 != this->nodes.end(); it1++){
-                if (this->nodes.back()->add_tag_code((*it1)->get_function_name())){
+                if (this->nodes.back()->add_tag_code(
+                    (*it1)->get_function_name())){
                     this->nodes.back()->add_adjacent(*it1);
                     break;
                 }
-                
             }
         }
         if (previous_node->add_next()) {
@@ -26,7 +27,8 @@ void Graph:: add_node(std::string instruction) {
             std::list<Node*>::iterator it;
             for (it = this->nodes.begin(); 
             it != this->nodes.end(); it++){
-                if ((*it)->add_tag_code(this->nodes.back()->get_function_name())) {
+                if ((*it)->add_tag_code(
+                    this->nodes.back()->get_function_name())) {
                     (*it)->add_adjacent(this->nodes.back());
                 }
             }
@@ -37,16 +39,16 @@ void Graph:: add_node(std::string instruction) {
 }
 
 void Graph:: print_grafo() {
-    cout << "----------------IMPRESION GRAFO------------" << '\n';
+    std::cout << "----------------IMPRESION GRAFO------------" << '\n';
     std::list<Node*>::iterator it;
     for (it = this->nodes.begin(); 
     it != this->nodes.end(); it++){
-        cout << "nodo" << (*it)->get_command_name() << '\n';
+        std::cout << "nodo" << (*it)->get_command_name() << '\n';
         std::list<Node*>::iterator it2;
         for (it2 = (*it)->get_adjacents().begin(); 
         it2 != (*it)->get_adjacents().end(); it2++)
         {
-            cout << "adyacentes" << (*it2)->get_command_name() << '\n';
+            std::cout << "adyacentes" << (*it2)->get_command_name() << '\n';
         }
     }
 }
@@ -91,12 +93,10 @@ std::list<Node*>& stack)
         }  
     }
     //stack.pop();
-    stack.pop_back(); 
-    
+    stack.pop_back();
 }
 
-void Graph:: DFS_wrapper() { 
-
+void Graph:: DFS_wrapper() {
     std::list<Node*> visited;
     std::list<Node*> stack;
 

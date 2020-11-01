@@ -4,9 +4,9 @@ eBPF:: eBPF() {}
 
 void eBPF:: read_code(const char* fn) {
     string line;
-    ifstream myfile (fn);
+    ifstream myfile(fn);
     if (myfile.is_open()) {
-        while (getline (myfile,line)) {
+        while (getline(myfile,line)) {
             if (!line.empty()) {
                 this->graph.add_node(line);
             }
@@ -32,6 +32,4 @@ void eBPF:: print_grafo() {
     this->graph.print_grafo();
 }
 
-eBPF:: ~eBPF() {
-    
-}
+eBPF:: ~eBPF() {}

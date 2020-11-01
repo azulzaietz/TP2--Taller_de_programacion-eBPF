@@ -18,7 +18,6 @@ class ThreadEbpfStarter {
     ThreadEbpfStarter(int argc, const char* argv[]);
     void start();
     ~ThreadEbpfStarter();
-
 };
 
 #endif

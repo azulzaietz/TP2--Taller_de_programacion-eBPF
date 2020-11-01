@@ -8,8 +8,8 @@
 #include "jumpConditional3Args.h"
 #include "ret.h"
 #include "undefinedInstruction.h"
-
-using namespace std;
+#include <list>
+#include <string>
 
 class Instruction {
     std::string instruction;
@@ -18,7 +18,7 @@ class Instruction {
     std:: string function_name;
 
     std::string command_name;
-    std::list <string> parameters;
+    std::list <std::string> parameters;
     InstructionType* instructionType;
     std:: list <const char*> jumps = {"jmp", "ja", "jeq", "jneq", 
     "jne", "jlt", "jle", "jgt", "jge", "jset"};
@@ -30,7 +30,7 @@ class Instruction {
     bool is_function();
     bool need_tag_code();
     bool add_tag_code(std::string tag);
-    std::string get_function_name();
+    std::string& get_function_name();
     std::string& get_command_name();
     bool add_next_instruction();
     ~Instruction();

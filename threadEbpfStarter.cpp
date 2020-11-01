@@ -8,7 +8,6 @@ ThreadEbpfStarter:: ThreadEbpfStarter(int argc, const char* argv[]) {
 }
 
 void ThreadEbpfStarter:: start() {
-    
     for (int i = 0; i < this->numberOfThreads; i++) {
         this->threads.push_back(new ThreadEbfp(&this->fc, &this->opc));
     }

@@ -1,6 +1,7 @@
 #include "jumpUnconditional.h"
+#include <string>
 
-JumpUnconditional:: JumpUnconditional(string& tag) {
+JumpUnconditional:: JumpUnconditional(std::string& tag) {
     this->tags.push_back(tag);
 }
 
@@ -18,6 +19,4 @@ bool JumpUnconditional:: add_next_instruction() {
     return false;
 }
 
-JumpUnconditional:: ~JumpUnconditional() {
-    
-}
+JumpUnconditional:: ~JumpUnconditional() {}

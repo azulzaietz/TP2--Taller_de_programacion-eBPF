@@ -4,10 +4,10 @@
 #include "instructionType.h"
 
 class JumpConditional2Args: public InstructionType {
-    std::list <string> tags;
+    std::list <std::string> tags;
 
     public:
-    JumpConditional2Args(string& arg, string& tag);
+    JumpConditional2Args(std::string& arg, std::string& tag);
     virtual bool need_tag_code() override;
     virtual bool add_tag_code(std::string tag) override;
     virtual bool add_next_instruction() override;

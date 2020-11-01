@@ -3,7 +3,7 @@
 
 #include "instruction.h"
 #include <list>
-using namespace std;
+#include <string>
 
 class Node {
     Instruction* instruction;
@@ -13,7 +13,7 @@ class Node {
     Node(std::string instruction);
     bool start_function();
     bool add_next();
-    std::string get_function_name();
+    std::string& get_function_name();
     std::string& get_command_name();
     void add_adjacent(Node* node);
     bool need_tag_code();

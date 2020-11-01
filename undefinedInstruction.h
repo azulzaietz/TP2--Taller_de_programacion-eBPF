@@ -6,7 +6,7 @@
 
 class UndefinedInstruction: public InstructionType {
     public:
-    UndefinedInstruction(std::list <string>& parameters);
+    UndefinedInstruction(std::list <std::string>& parameters);
     virtual bool add_next_instruction() override;
     virtual ~UndefinedInstruction() override;
 };

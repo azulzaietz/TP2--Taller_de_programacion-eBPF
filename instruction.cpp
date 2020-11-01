@@ -1,6 +1,7 @@
 #include "instruction.h"
+#include <string>
 
-Instruction::Instruction (std::string instruction){
+Instruction::Instruction(std::string instruction){
     this->instruction = instruction;
 
     std::string token = instruction;
@@ -10,11 +11,10 @@ Instruction::Instruction (std::string instruction){
     std::string arguments_delimiter = ", ";
 
     size_t pos = 0;
-    for(size_t j=0; j < token.length(); j++){
-        if(isspace(token[j])){
+    for (size_t j=0; j < token.length(); j++){
+        if (isspace(token[j])){
             pos++;
-        }
-        else{
+        } else {
             break;
         }
     }
@@ -27,11 +27,10 @@ Instruction::Instruction (std::string instruction){
         token.erase(0, pos + function_name_delimiter.length());
 
         pos = 0;
-        for(size_t j=0; j < token.length(); j++){
-            if(isspace(token[j])){
+        for (size_t j=0; j < token.length(); j++){
+            if (isspace(token[j])){
                 pos++;
-            }
-            else{
+            } else {
                 break;
             }
         }
@@ -44,11 +43,10 @@ Instruction::Instruction (std::string instruction){
         token.erase(0, pos + command_delimiter.length());
     }
     pos = 0;
-    for(size_t j=0; j < token.length(); j++){
-        if(isspace(token[j])){
+    for (size_t j=0; j < token.length(); j++){
+        if (isspace(token[j])){
             pos++;
-        }
-        else{
+        } else {
             break;
         }
     }
@@ -65,19 +63,19 @@ Instruction::Instruction (std::string instruction){
 }
 
 InstructionType* Instruction:: FindInstructionType() {
-
     bool jump = (std::find(this->jumps.begin(), this->jumps.end(), 
                 this->command_name) != this->jumps.end());
     if (jump) {
         if (this->parameters.size() == 1) {
             return new JumpUnconditional(this->parameters.back());
         } else if (this->parameters.size() == 2) {
-            return new JumpConditional2Args(this->parameters.front(), this->parameters.back());
+            return new JumpConditional2Args(this->parameters.front(),
+                        this->parameters.back());
         } else if (this->parameters.size() == 3) {
-            string param1 = this->parameters.front();
+            std::string param1 = this->parameters.front();
             this->parameters.pop_front();
-            string param2 = this->parameters.front();
-            string param3 = this->parameters.back();
+            std::string param2 = this->parameters.front();
+            std::string param3 = this->parameters.back();
             return new JumpConditional3Args(param1, param2, param3);
         }
     } else if (this->command_name == "ret") {
@@ -90,7 +88,7 @@ bool Instruction:: is_function() {
     return this->_is_function;
 }
 
-std::string Instruction:: get_function_name() {
+std::string& Instruction:: get_function_name() {
     return this->function_name;
 }
 

@@ -15,6 +15,4 @@ void ThreadEbfp:: run() {
     }
 }
 
-ThreadEbfp:: ~ThreadEbfp(){
-
-}
+ThreadEbfp:: ~ThreadEbfp(){}

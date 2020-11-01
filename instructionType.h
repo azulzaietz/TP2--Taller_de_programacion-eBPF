@@ -4,11 +4,9 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
-
-using namespace std;
+#include <string>
 
 class InstructionType {
-    
     public:
     InstructionType();
     virtual bool need_tag_code();

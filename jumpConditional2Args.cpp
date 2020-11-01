@@ -1,6 +1,8 @@
 #include "jumpConditional2Args.h"
+#include <list>
+#include <string>
 
-JumpConditional2Args:: JumpConditional2Args(string& arg, string& tag) {
+JumpConditional2Args:: JumpConditional2Args(std::string& arg, std::string& tag) {
     this->tags.push_back(tag);
     //cout << "JUMP 2 ARGS" << arg << tag << '\n';
 }
@@ -19,6 +21,4 @@ bool JumpConditional2Args:: add_next_instruction() {
     return true;
 }
 
-JumpConditional2Args:: ~JumpConditional2Args() {
-    
-}
+JumpConditional2Args:: ~JumpConditional2Args() {}

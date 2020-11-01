@@ -5,9 +5,8 @@
 #include <fstream>
 #include <list>
 #include <map>
-//#include <stack>
+#include <string>
 #include "node.h"
-using namespace std;
 
 class Graph {
     std::list < Node* > nodes;
@@ -20,7 +19,8 @@ class Graph {
     
     public:
     Graph();
-    //si lo primero es una etiqueta llama a agregar etiqueta para cada nodo en la lista de nodos, 
+    //si lo primero es una etiqueta llama a agregar 
+    //etiqueta para cada nodo en la lista de nodos, 
     //si no, crea un nodo solamente.
     void add_node(std::string instruction);
     void complete_graph();

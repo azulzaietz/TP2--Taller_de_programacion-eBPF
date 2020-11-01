@@ -1,4 +1,5 @@
 #include "node.h"
+#include <string>
 
 Node:: Node(std::string instruction) {
     this->instruction = new Instruction(instruction);
@@ -16,7 +17,7 @@ bool Node:: start_function() {
     return this->instruction->is_function();
 }
 
-std::string Node:: get_function_name() {
+std::string& Node:: get_function_name() {
     return this->instruction->get_function_name();
 }
 
