@@ -1,8 +1,12 @@
 #include "outPutController.h"
 
-void OutPutController:: addOutPut(std::string outPut) {
+void OutPutController:: addOutPut(std::string outPutFn, std::string outPutCheck) {
     this->mtx.lock();
-    this->outPuts.push_back(outPut);
+    std::string s;
+    s.append(outPutFn);
+    s.append(" ");
+    s.append(outPutCheck);
+    this->outPuts.push_back(s);
     this->mtx.unlock();
 }
 

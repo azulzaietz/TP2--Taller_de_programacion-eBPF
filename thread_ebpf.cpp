@@ -11,7 +11,7 @@ void ThreadEbfp:: run() {
         eBPF ebpf;
         ebpf.read_code(fn);
         const char* check = ebpf.verify();
-        this->output_controller->addOutPut(check);
+        this->output_controller->addOutPut(fn, check);
     }
 }
 
