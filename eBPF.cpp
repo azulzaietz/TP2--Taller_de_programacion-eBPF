@@ -3,8 +3,8 @@
 eBPF:: eBPF() {}
 
 void eBPF:: read_code(const char* fn) {
-    string line;
-    ifstream myfile(fn);
+    std::string line;
+    std::ifstream myfile(fn);
     if (myfile.is_open()) {
         while (getline(myfile,line)) {
             if (!line.empty()) {
@@ -13,7 +13,7 @@ void eBPF:: read_code(const char* fn) {
         }
         myfile.close();
     } else { 
-        cout << "Unable to open file"; 
+        std::cout << "Unable to open file"; 
     }
 }
 
