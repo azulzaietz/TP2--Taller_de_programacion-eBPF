@@ -28,8 +28,4 @@ const char* eBPF:: verify() {
     }
 }
 
-void eBPF:: print_grafo() {
-    this->graph.print_grafo();
-}
-
 eBPF:: ~eBPF() {}

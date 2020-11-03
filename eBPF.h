@@ -13,7 +13,6 @@ class eBPF {
     eBPF();
     void read_code(const char* fn);
     const char* verify();
-    void print_grafo();
     ~eBPF();
 };
 
