@@ -19,12 +19,20 @@ class Graph {
     
     public:
     Graph();
-    //si lo primero es una etiqueta llama a agregar 
-    //etiqueta para cada nodo en la lista de nodos, 
-    //si no, crea un nodo solamente.
+    //Recibe una instruccion leida de un archivo
+    //crea un nodo y lo agrega al grafo
+    //Pre: un grafo fue inicializado
+    //Post: un nuevo nodo fue agregado al grafo
     void add_node(std::string instruction);
+    //Llama a DFS para verificar el programa eBPF
     void verify();
+    //Devuelve true si hay loops en el grafo
+    //del programa eBPF, 
+    //false en caso contrario
     bool find_loops();
+    //Devuelve true si hay instrucciones sin
+    //ejecutar en el grafo del programa
+    //eBPF, false en caso contrario
     bool find_unexecuted_nodes();
     ~Graph();
 };
