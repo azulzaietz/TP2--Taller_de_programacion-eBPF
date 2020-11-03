@@ -46,6 +46,8 @@ Durante la implementación se agregó un nuevo TDA para abstraer el código de l
 
 Se representa el caso particular en el que se pide procesar un archivo de programa eBPF con un solo hilo.
 
+![secuence](./thread_file.svg)
+
 # Diagrama de clases representativo de la solución final:
 
 ![uml](./uml.svg)
