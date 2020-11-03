@@ -1,15 +1,7 @@
 #include "instruction.h"
 #include <string>
 
-Instruction::Instruction(std::string instruction){
-    this->instruction = instruction;
-
-    std::string token = instruction;
-
-    std::string function_name_delimiter = ":";
-    std::string command_delimiter = " ";
-    std::string arguments_delimiter = ", ";
-
+static void token_erase(std::string& token) {
     size_t pos = 0;
     for (size_t j=0; j < token.length(); j++){
         if (isspace(token[j])){
@@ -19,22 +11,26 @@ Instruction::Instruction(std::string instruction){
         }
     }
     token.erase(0, pos);
+}
 
-    pos = 0;
+Instruction::Instruction(std::string instruction){
+    this->instruction = instruction;
+
+    std::string token = instruction;
+
+    std::string function_name_delimiter = ":";
+    std::string command_delimiter = " ";
+    std::string arguments_delimiter = ", ";
+
+    token_erase(token);
+
+    size_t pos = 0;
     if ((pos = token.find(function_name_delimiter)) != std::string::npos) {
         this->_is_function = true;
         this->function_name = token.substr(0, pos);
         token.erase(0, pos + function_name_delimiter.length());
 
-        pos = 0;
-        for (size_t j=0; j < token.length(); j++){
-            if (isspace(token[j])){
-                pos++;
-            } else {
-                break;
-            }
-        }
-        token.erase(0, pos);
+        token_erase(token);
     }
     
     pos = 0;
@@ -42,15 +38,7 @@ Instruction::Instruction(std::string instruction){
         this->command_name = token.substr(0, pos);
         token.erase(0, pos + command_delimiter.length());
     }
-    pos = 0;
-    for (size_t j=0; j < token.length(); j++){
-        if (isspace(token[j])){
-            pos++;
-        } else {
-            break;
-        }
-    }
-    token.erase(0, pos);
+    token_erase(token);
 
     pos = 0;
     while ((pos = token.find(arguments_delimiter)) != std::string::npos) {
