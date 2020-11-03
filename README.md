@@ -9,7 +9,6 @@ El siguiente informe detalla información relevante del proceso de desarrollo de
 # DISEÑO
 
 Antes de implementar la solución, se empezó por diseñarla, planteando las diferentes estructuras del programa y cómo iban a relacionarse entre sí. 
-
 El diseño se pensó usando como base la programación orientada a objetos.
 
 En un principio se plantearon los siguientes:
