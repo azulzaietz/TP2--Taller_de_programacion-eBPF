@@ -27,7 +27,6 @@ class Graph {
     void verify();
     bool find_loops();
     bool find_unexecuted_nodes();
-    void print_grafo();
     ~Graph();
 };
 

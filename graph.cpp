@@ -38,21 +38,6 @@ void Graph:: add_node(std::string instruction) {
     }
 }
 
-void Graph:: print_grafo() {
-    std::cout << "----------------IMPRESION GRAFO------------" << '\n';
-    std::list<Node*>::iterator it;
-    for (it = this->nodes.begin(); 
-    it != this->nodes.end(); it++){
-        std::cout << "nodo" << (*it)->get_command_name() << '\n';
-        std::list<Node*>::iterator it2;
-        for (it2 = (*it)->get_adjacents().begin(); 
-        it2 != (*it)->get_adjacents().end(); it2++)
-        {
-            std::cout << "adyacentes" << (*it2)->get_command_name() << '\n';
-        }
-    }
-}
-
 void Graph:: verify() {
     this->DFS_wrapper();
 }
